@@ -1,0 +1,85 @@
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+.slick-arrow {
+  display: block;
+  background: black !important;
+  border-radius: 16px;
+}
+
+.card-container {
+  min-height: 350px;
+  border: 1px solid #CFCFCF;
+  border-radius: 12px;
+  width: 330px !important;
+  cursor: pointer;
+
+}
+
+
+.img-container {
+  height: 361px;
+  object-fit: cover;
+  transition: ease 1s;
+}
+
+
+
+img {
+  width: 368px;
+  padding: 0px 40px 0px 0px;
+}
+
+
+.card-title {
+  padding: 10px 16px;
+  width: 100%;
+  justify-content: center;
+  background-color: #FFC700;
+}
+
+.cardBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 16px;
+  gap: 12px;
+}
+
+.card-data, .card-body {
+  margin-left: 16px;
+  display: block;
+}
+
+.nomeFilme {
+  width: 100%;
+  display: flex;
+}
+
+
+/* button {
+  border: none;
+  background: transparent;
+  font-size: 3em;
+} */
+
+
+/* MEDIA QUERIES */
+@media (max-width: 1025px) {
+  .card-container {
+    margin-left: 90px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .slick-arrow {
+    display: none !important;
+  }
+
+  .card-container {
+    margin-left: 15px !important;
+  }
+}

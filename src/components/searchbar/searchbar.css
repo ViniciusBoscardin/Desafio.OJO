@@ -1,0 +1,38 @@
+.rightSide input {
+  width: 288px;
+  height: 29px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: end;
+  padding-right: 10px;
+  color: #818181;
+}
+
+.rightSide button {
+  height: 30px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 25px;
+  padding: 3px 0px 0px 3px;
+  transition: 0.3s ease;
+}
+
+.rightSide button:hover {
+  transform: scale(1.2);
+}
+
+@media screen and (max-width: 500px) {
+  .rightSide input {
+    width: 150px;
+    height: 20px;
+  }
+
+  .rightSide button {
+    font-size: 20px;
+    padding-right: 3px;
+  }
+
+
+}

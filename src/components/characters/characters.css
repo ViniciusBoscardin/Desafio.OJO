@@ -1,0 +1,44 @@
+.card-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+}
+
+.card-container-char {
+  min-height: 170px;
+  border: 1px solid #CFCFCF;
+  border-radius: 12px;
+  width: 330px !important;
+  margin-bottom: 19px;
+}
+
+.nomePersonagem {
+  padding: 10px 16px;
+  width: 100%;
+  justify-content: center;
+  background-color: #FFC700;
+}
+
+.cardBox-char {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 16px;
+  gap: 12px;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1025px) {
+  .card-container-char {
+    margin-left: 90px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .card-container-char {
+    margin-left: 15px;
+  }
+}

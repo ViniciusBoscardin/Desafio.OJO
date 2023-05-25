@@ -1,0 +1,64 @@
+.titulo {
+  font-size: 30px;
+  padding: 50px;
+  overflow: hidden;
+  text-align: center;
+  color: black;
+}
+
+.titulo:before,
+.titulo:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 30%;
+}
+
+.titulo:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+
+.titulo:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.form-review {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.input {
+  width: 453px;
+  height: 38px;
+  margin: 20px;
+}
+
+textarea {
+  width: 1146px;
+  height: 133px;
+}
+
+.btn-form {
+  width: 129px;
+  height: 39px;
+  background: #00FF66;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+  margin: 20px 20px;
+  border-radius: 10px;
+}
+
+.btn-form:hover {
+  background: #03de5b;
+}

@@ -1,0 +1,29 @@
+.titulo {
+  font-size: 30px;
+  padding: 50px;
+  overflow: hidden;
+  text-align: center;
+  color: black;
+}
+
+.titulo:before,
+.titulo:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 30%;
+}
+
+.titulo:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+
+.titulo:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
