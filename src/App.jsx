@@ -7,19 +7,17 @@ import Characters from './components/characters/Characters';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
 import Moviepage from './pages/moviepage/Moviepage';
+import Home from './pages/home/Home';
 
 function App() {
   return (
     <Router>
       <div className='App'>
         <Navbar />
-        <Header />
-        <Card />
-        <Characters />
-        {/* <Moviepage /> */}
-        {/* <Routes>
-          <Route path='/moviepage' element={<Moviepage />} />
-        </Routes> */}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path=':movieId' element={<Moviepage />} />
+        </Routes>
       </div>
     </Router>
   );

@@ -28,6 +28,10 @@
   margin-right: -50%;
 }
 
+form {
+  width: 70vw;
+}
+
 .form-review {
   display: flex;
   align-items: center;
@@ -35,15 +39,36 @@
   margin: 0 auto;
 }
 
+.container-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.label {
+  padding: 0.25rem 0;
+}
+
 .input {
-  width: 453px;
-  height: 38px;
-  margin: 20px;
+  width: 100%;
+  padding: 0.25rem;
+  min-height: 38px;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
 }
 
 textarea {
   width: 1146px;
   height: 133px;
+  border: 1px solid #E5E5E5;
+
 }
 
 .btn-form {

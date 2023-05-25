@@ -11,7 +11,7 @@ import slide_image_3 from '../../assets/images/episode_3.jpg';
 import slide_image_4 from '../../assets/images/episode_4.webp';
 import slide_image_5 from '../../assets/images/episode_5.jpg';
 import slide_image_6 from '../../assets/images/episode_6.jpg';
-import Btnmovies from '../btnmovies/Btnmovies';
+import HeadBodyGrid from '../skeleton/Skeleton';
 
 const Card = ({ title, data, body }) => {
   var settings = {
@@ -49,6 +49,8 @@ const Card = ({ title, data, body }) => {
     ],
   };
 
+  const [showLoading, setShowLoading] = useState(false);
+
   const getImageForFilm = (episodeId) => {
     switch (episodeId) {
       case 1:
@@ -75,37 +77,58 @@ const Card = ({ title, data, body }) => {
   }, []);
 
   const fetchFilms = async () => {
+    setShowLoading(true);
     try {
       const response = await fetch('https://swapi.dev/api/films/');
       const data = await response.json();
       setFilmData(data.results);
-      console.log(data.results);
+
+      // console.log(data.results);
     } catch (error) {
       console.error(error);
+    } finally {
+      setShowLoading(false);
     }
+  };
+
+  const returnCorrectIdFilm = (url) => {
+    const regex = /\/films\/(\d+)\//;
+    const match = url.match(regex);
+    console.log(match, url);
+    return match[1];
   };
 
   return (
     <div className='wrapper'>
-      <Slider {...settings}>
-        {filmData.map((film) => (
-          <div key={film.url} className='card-container'>
-            <img
-              className='img-container'
-              src={getImageForFilm(film.episode_id)}
-              alt={`Imagem ${film.episode_id}`}
-            />
-            <div className='nomeFilme'>
-              <span className='card-title'>{film.title}</span>
+      {showLoading ? (
+        <HeadBodyGrid />
+      ) : (
+        <Slider {...settings}>
+          {filmData.map((film) => (
+            <div key={film.url} className='card-container'>
+              <img
+                className='img-container'
+                src={getImageForFilm(film.episode_id)}
+                alt={`Imagem ${film.episode_id}`}
+              />
+              <div className='nomeFilme'>
+                <span className='card-title'>{film.title}</span>
+              </div>
+              <div className='cardBox'>
+                <span>Data de Lançamento: {film.release_date}</span>
+                <span>Diretor: {film.director}</span>
+                <div>
+                  <button className='ver-mais'>
+                    <Link to={`/${returnCorrectIdFilm(film.url)}`}>
+                      Ver mais
+                    </Link>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className='cardBox'>
-              <span>Data de Lançamento: {film.release_date}</span>
-              <span>Diretor: {film.director}</span>
-              <Btnmovies />
-            </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };

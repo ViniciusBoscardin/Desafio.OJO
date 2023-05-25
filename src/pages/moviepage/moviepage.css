@@ -1,68 +1,95 @@
-.movie-container {
-  display: flex;
-  align-items: center;
-
-}
-
-img {
-  position: relative;
-  bottom: 35px px;
-  /* right: 102px; */
-}
-
 .movie-description {
-  flex: 1;
-  padding: 20px;
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  float: left;
+  padding-left: 318px;
+  margin-bottom: 63px;
+}
+
+.data-lancamento {
+  display: flex;
+  width: 50%;
+  padding-left: 210px;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .description {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 50%;
+  padding-left: 200px;
+  justify-content: space-around;
+}
+
+.movie-image {
+  display: flex;
   margin: 0 auto;
-}
-
-h2 {
-  display: flex;
-  align-items: center;
+  width: 310px;
+  padding-right: 56px;
   justify-content: center;
-  padding-right: 125px;
+  align-items: flex-end;
 }
 
-h3 {
-  margin: 10px 0px 128px 336px;
-  font-weight: 100;
-  font-size: 17px;
-}
-
-p {
-  margin: 10px 49px 22px 335px;
-}
-
-.movie-image {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.movie-image {
-  max-width: 100%;
-  height: auto;
-}
 
 
 /* MEDIA QUERIES */
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
   .movie-container {
     margin-right: 10px;
+  }
 
+  .movie-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .description {
+    padding-left: 100px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1500px) {
+  .description {
+    padding-left: 300px;
+  }
+
+  .data-lancamento {
+    margin: 70px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .data-lancamento {
+    margin: 85px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .data-lancamento {
+    margin: 34px;
+    padding-left: 10px;
+    padding-left: 4px;
+  }
+}
+
+@media (max-width: 800px) {
+  .movie-description {
+    width: 100%;
+  }
+
+
   .slick-arrow {
     display: none !important;
+  }
+
+
+
+  .sinopse {
+    margin: 10px 0px 123px -4px;
+
   }
 
   .movie-container {

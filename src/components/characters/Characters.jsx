@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
 import './characters.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import HeadBodyGrid from '../skeleton/Skeleton';
 
-const Characters = () => {
+const Characters = ({ charactersOnMovie }) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -42,20 +42,28 @@ const Characters = () => {
     ],
   };
 
-  const [characterData, setCharacterData] = useState([]);
+  const [showLoading, setShowLoading] = useState(false);
+
+  const [characterData, setCharacterData] = useState(charactersOnMovie || []);
 
   useEffect(() => {
-    fetchCharacter();
-  }, []);
+    if (!charactersOnMovie) {
+      fetchCharacter();
+    } else {
+      setCharacterData(charactersOnMovie);
+    }
+  }, [charactersOnMovie]);
 
   const fetchCharacter = async () => {
+    setShowLoading(true);
     try {
       const response = await fetch('https://swapi.dev/api/people/');
       const data = await response.json();
       setCharacterData(data.results);
-      // console.log(data.results);
     } catch (error) {
       console.error(error);
+    } finally {
+      setShowLoading(false);
     }
   };
 
@@ -63,21 +71,27 @@ const Characters = () => {
     <>
       <h1 className='titulo'>Characters</h1>
       <div className='card-wrapper'>
-        <Slider {...settings}>
-          {characterData.map((character) => (
-            <div key={character.url} className='card-container-char'>
-              <div className='nomePersonagem'>
-                <span className='card-title-char'>Nome: {character.name}</span>
+        {showLoading ? (
+          <HeadBodyGrid boxSkeleton='170' />
+        ) : (
+          <Slider {...settings}>
+            {characterData.map((character) => (
+              <div key={character.url} className='card-container-char'>
+                <div className='nomePersonagem'>
+                  <span className='card-title-char'>
+                    Nome: {character.name}
+                  </span>
+                </div>
+                <div className='cardBox'>
+                  <span>
+                    Data de Nascimento: <br /> {character.birth_year}
+                  </span>
+                  <span>Altura: {character.height}</span>
+                </div>
               </div>
-              <div className='cardBox'>
-                <span>
-                  Data de Nascimento: <br /> {character.birth_year}
-                </span>
-                <span>Altura: {character.height}</span>
-              </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
       </div>
     </>
   );

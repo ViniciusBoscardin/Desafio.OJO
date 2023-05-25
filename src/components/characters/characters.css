@@ -3,6 +3,7 @@
   margin: 0 auto;
   display: block;
   cursor: pointer;
+  padding-bottom: 50px;
 }
 
 .card-container-char {
@@ -18,6 +19,7 @@
   width: 100%;
   justify-content: center;
   background-color: #FFC700;
+  border-radius: 10px;
 }
 
 .cardBox-char {
